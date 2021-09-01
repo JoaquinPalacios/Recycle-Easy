@@ -37,7 +37,6 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        // width: '100%',
     },
     logo: {
         width: 100,

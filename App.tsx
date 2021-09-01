@@ -1,9 +1,10 @@
+import 'react-native-gesture-handler';
+
 import React, { useState } from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
 
 import AppLoading from 'expo-app-loading';
 import MainNAvigationComponent from './navigation/MainNavigation';
-// import HomeComponent from './screens/home/home';
 import { StatusBar } from 'expo-status-bar';
 import { useFonts } from 'expo-font';
 
