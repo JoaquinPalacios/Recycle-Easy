@@ -1,11 +1,12 @@
 import { Button, Image, StyleSheet, Text, View } from "react-native"
 
 import CardsComponent from "../../components/cards/cards"
+import EcoNoticias from "../../components/EcoNoticias/EcoNoticias";
 import React from "react";
 
 // import { useNavigation } from "@react-navigation/native";
 
-// import EcoNoticias from "../../components/EcoNoticias/EcoNoticias";
+
 
 
 export interface HomeComponentProps {
@@ -14,11 +15,10 @@ export interface HomeComponentProps {
 }
  
 const HomeComponent: React.FC<HomeComponentProps> = ({navigation}) => {
-    // const navigation = useNavigation<any>();
     
     return (
         <>
-            <View>
+            <View style={styles.viewContainer}>
                 <Text style={styles.title}>Hello User</Text>
                 <Image style={styles.logo} source={require('../../assets/images/Logo.png')} />
                 <CardsComponent>
@@ -26,13 +26,19 @@ const HomeComponent: React.FC<HomeComponentProps> = ({navigation}) => {
                     <Button title='Tips' onPress={() => navigation.navigate('Tips')} />
                 </CardsComponent><CardsComponent>
                         <Text style={styles.textCard}>Eco-Noticias</Text>
-                        {/* <Button title='Eco-Noticias' onPress={() => navigation.navigate('Eco-Noticias')} /> */}
+                        <Button title='Eco-Noticias' onPress={() => navigation.navigate('Eco-Noticias')} />
                 </CardsComponent>
             </View>
         </>
     );
 };
 const styles = StyleSheet.create({
+    viewContainer: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        // width: '100%',
+    },
     logo: {
         width: 100,
         height: 100,
@@ -52,9 +58,9 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         paddingBottom: 10,
     },
-    buttonStyle: {
-        width: '50%',
-    },
+    // buttonStyle: {
+    //     width: '50%',
+    // },
 });
 
 

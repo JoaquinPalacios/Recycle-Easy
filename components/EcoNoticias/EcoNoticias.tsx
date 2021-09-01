@@ -40,15 +40,3 @@ const styles = StyleSheet.create({
     },
 });
 export default EcoNoticias;
-
-{/* <>
-            {pressedButton === false ? (
-            <View style={styles.container}>
-                <Text style={styles.title}>Soy el componente Eco-Noticias</Text>
-                <CardsComponent>
-                    <Text style={styles.textCard}>Eco-Noticias</Text>
-                    <Button title='Volver al inicio' onPress={handlePage} />
-                </CardsComponent>
-            </View>
-            ) : <HomeComponent />}
-        </> */}

@@ -1,5 +1,4 @@
-// import EcoNoticias from "../components/EcoNoticias/EcoNoticias";
-
+import EcoNoticias from "../components/EcoNoticias/EcoNoticias";
 import HomeComponent from "../screens/home/home";
 import { NavigationContainer } from "@react-navigation/native";
 import React from 'react';
@@ -17,7 +16,7 @@ const MainNAvigationComponent: React.FC<MainNAvigationComponentProps> = () => {
             <NavigationContainer>
                 <Stack.Navigator initialRouteName='Home'>
                     <Stack.Screen name='Home' component={HomeComponent} />
-                    {/* <Stack.Screen name='Eco-Noticias' component={EcoNoticias} /> */}
+                    <Stack.Screen name='Eco-Noticias' component={EcoNoticias} />
                     <Stack.Screen name='Tips' component={TipsComponent} />
                 </Stack.Navigator>
             </NavigationContainer>

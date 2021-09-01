@@ -24,7 +24,7 @@ const App: React.FC<AppProps> = () => {
   return (
     <>
         <SafeAreaView style={styles.container}>
-          <View>
+          <View style={styles.viewNavigation}>
             <MainNAvigationComponent />
             <StatusBar style="auto" />
             </View>  
@@ -41,5 +41,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  viewNavigation: {
+    flex: 1,
+    width: '100%',
   },
 });
