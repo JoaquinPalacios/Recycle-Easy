@@ -1,15 +1,39 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { SafeAreaView, StyleSheet, View } from 'react-native';
 
-export default function App() {
+import AppLoading from 'expo-app-loading';
+import MainNAvigationComponent from './navigation/MainNavigation';
+// import HomeComponent from './screens/home/home';
+import { StatusBar } from 'expo-status-bar';
+import { useFonts } from 'expo-font';
+
+export interface AppProps {
+  
+}
+ 
+const App: React.FC<AppProps> = () => {
+  const [dataLoaded] = useFonts({
+    'SFProDisplay-Regular': require('./assets/fonts/SFProDisplay-Regular.ttf'),
+    'SFProDisplay-Bold': require('./assets/fonts/SFProDisplay-Bold.ttf'),
+  })
+
+  if (!dataLoaded) {
+    return <AppLoading />
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+        <SafeAreaView style={styles.container}>
+          <View>
+            <MainNAvigationComponent />
+            <StatusBar style="auto" />
+            </View>  
+        </SafeAreaView>
+    </>
   );
 }
+ 
+export default App;
 
 const styles = StyleSheet.create({
   container: {
