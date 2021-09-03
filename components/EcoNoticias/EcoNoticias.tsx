@@ -1,10 +1,10 @@
-import { Button, StyleSheet, Text, View } from "react-native"
+import { StyleSheet, Text, View } from "react-native"
 
 import CardsComponent from "../cards/cards";
 import React from "react";
 
 export interface EcoNoticiasProps {
-    // setButtonPressed: boolean
+    
 }
  
 const EcoNoticias: React.FC<EcoNoticiasProps> = () => {
@@ -12,9 +12,9 @@ const EcoNoticias: React.FC<EcoNoticiasProps> = () => {
     return (
         <>
             <View style={styles.container}>
-                <Text style={styles.title}>Soy el componente Eco-Noticias</Text>
+                <Text style={styles.title}>Soy el componente Eco News</Text>
                 <CardsComponent>
-                    <Text style={styles.textCard}>Eco-Noticias</Text>
+                    <Text style={styles.textCard}>Eco News</Text>
                 </CardsComponent>
             </View>
         </>

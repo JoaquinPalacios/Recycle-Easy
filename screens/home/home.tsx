@@ -1,8 +1,10 @@
 import { Button, Image, StyleSheet, Text, View } from "react-native"
 
 import CardsComponent from "../../components/cards/cards"
-import EcoNoticias from "../../components/EcoNoticias/EcoNoticias";
 import React from "react";
+
+// import EcoNoticias from "../../components/EcoNoticias/EcoNoticias";
+
 
 // import { useNavigation } from "@react-navigation/native";
 
@@ -19,14 +21,13 @@ const HomeComponent: React.FC<HomeComponentProps> = ({navigation}) => {
     return (
         <>
             <View style={styles.viewContainer}>
-                <Text style={styles.title}>Hello User</Text>
                 <Image style={styles.logo} source={require('../../assets/images/Logo.png')} />
                 <CardsComponent>
                     <Text style={styles.textCard}>Tips</Text>
                     <Button title='Tips' onPress={() => navigation.navigate('Tips')} />
                 </CardsComponent><CardsComponent>
-                        <Text style={styles.textCard}>Eco-Noticias</Text>
-                        <Button title='Eco-Noticias' onPress={() => navigation.navigate('Eco-Noticias')} />
+                        <Text style={styles.textCard}>Eco News</Text>
+                        <Button title='Eco News' onPress={() => navigation.navigate('Eco News')} />
                 </CardsComponent>
             </View>
         </>
@@ -57,9 +58,6 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         paddingBottom: 10,
     },
-    // buttonStyle: {
-    //     width: '50%',
-    // },
 });
 
 
