@@ -1,8 +1,12 @@
-import { StyleSheet, Text, View } from "react-native"
+import { StyleSheet, View } from "react-native"
 
-import EcoNoticias from "../EcoNoticias/EcoNoticias";
 import React from "react";
 import colors from "../../constants/colors";
+
+// import EcoNoticias from "../EcoNoticias/EcoNoticias";
+
+
+
 
 export interface CardsComponentProps {
     // buttonPressed: boolean

@@ -10,6 +10,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import React from 'react';
 import RecycleComponent from "../components/Recycle/Recycle";
 import TipsComponent from "../components/tips/Tips";
+import colors from "../constants/colors";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
@@ -61,7 +62,7 @@ const MainNAvigationComponent: React.FC<MainNAvigationComponentProps> = () => {
         <>
             <NavigationContainer>
                 <Tab.Navigator
-                screenOptions={{tabBarStyle: {backgroundColor: '#86CC94', height: 83, paddingBottom: 15, paddingTop: 15},
+                screenOptions={{tabBarStyle: {backgroundColor: colors.primary, height: 83, paddingBottom: 15, paddingTop: 15},
                 tabBarActiveTintColor: 'white',
                 tabBarInactiveTintColor: 'black',
                 }}>
