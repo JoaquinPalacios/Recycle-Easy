@@ -4,15 +4,17 @@ import CalendarComponent from "../components/Calendar/Calendar";
 import CompostComponent from "../components/Compost/Compost";
 import EcoNoticias from "../components/EcoNoticias/EcoNoticias";
 import { FontAwesome } from '@expo/vector-icons';
-import HomeComponent from "../screens/home/home";
+import HomeComponent from "../screens/homeScreen/homeScreen";
 import { Ionicons } from '@expo/vector-icons';
 import { NavigationContainer } from "@react-navigation/native";
 import React from 'react';
-import RecycleComponent from "../components/Recycle/Recycle";
+import RecycleComponent from "../screens/RecycleScreen/RecycleScreen";
+import SingleItemScreenComponent from "../screens/singlePlasticScreen/singlePlasticScreen";
 import TipsComponent from "../components/tips/Tips";
 import colors from "../constants/colors";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import plasticsScreenComponent from "../screens/plasticsScreen/plasticsScreen";
 
 export interface MainNAvigationComponentProps {
     
@@ -54,6 +56,18 @@ export const stackNavigator = () => (
                 fontSize: 27,
                 fontWeight: '600',
             }}} />
+            <Stack.Screen 
+            name='Types of plastic' 
+            component={plasticsScreenComponent}
+            options={({ route }: {route:any}) => (
+                {title: route.params.name,}
+                )} />
+            <Stack.Screen 
+            name='Plastic description' 
+            component={SingleItemScreenComponent}
+            options={({ route }: {route:any}) => (
+                {title: route.params.name,}
+                )} />            
         </Stack.Navigator>
     </>
 );
@@ -62,7 +76,12 @@ const MainNAvigationComponent: React.FC<MainNAvigationComponentProps> = () => {
         <>
             <NavigationContainer>
                 <Tab.Navigator
-                screenOptions={{tabBarStyle: {backgroundColor: colors.primary, height: 83, paddingBottom: 15, paddingTop: 15},
+                screenOptions={{tabBarStyle: {
+                    backgroundColor: colors.primary,
+                    height: 83,
+                    paddingBottom: 15,
+                    paddingTop: 15
+                },
                 tabBarActiveTintColor: 'white',
                 tabBarInactiveTintColor: 'black',
                 }}>
@@ -71,7 +90,10 @@ const MainNAvigationComponent: React.FC<MainNAvigationComponentProps> = () => {
                     component={stackNavigator} 
                     options={{
                         headerShown: false,
-                        tabBarIcon: ({color}) => (<Ionicons name={Platform.OS === "ios" ? `ios-home` : "md-home"} size={32} color={color} />),
+                        tabBarIcon: ({color}) => (<Ionicons 
+                            name={Platform.OS === "ios" ? `ios-home` : "md-home"} 
+                            size={32} 
+                            color={color} />),
                     }} />
                     <Tab.Screen 
                     name='Recycle' 
@@ -79,19 +101,28 @@ const MainNAvigationComponent: React.FC<MainNAvigationComponentProps> = () => {
                     options={{
                         headerTitle: 'What would you like to recycle?', 
                         headerTitleAlign: 'center',
-                        tabBarIcon: ({color}) => (<FontAwesome name='recycle' size={32} color={color} />),
+                        tabBarIcon: ({color}) => (<FontAwesome 
+                            name='recycle' 
+                            size={32} 
+                            color={color} />),
                     }} />
                     <Tab.Screen 
                     name='Calendar' 
                     component={CalendarComponent}
                     options={{
-                        tabBarIcon: ({color}) => (<Ionicons name={Platform.OS === "ios" ? `ios-calendar-outline` : "md-calendar-outline"} size={32} color={color} />),
+                        tabBarIcon: ({color}) => (<Ionicons 
+                            name={Platform.OS === "ios" ? `ios-calendar-outline` : "md-calendar-outline"} 
+                            size={32} 
+                            color={color} />),
                     }} />
                     <Tab.Screen 
                     name='Compost' 
                     component={CompostComponent} 
                     options={{
-                        tabBarIcon: ({color}) => (<Ionicons name={Platform.OS === "ios" ? `ios-leaf-outline` : "md-leaf-outline"} size={32} color={color} />),
+                        tabBarIcon: ({color}) => (<Ionicons 
+                            name={Platform.OS === "ios" ? `ios-leaf-outline` : "md-leaf-outline"} 
+                            size={32} 
+                            color={color} />),
                     }} />
 
                 </Tab.Navigator>
@@ -108,16 +139,4 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 315,
     },
-    // imageTips: {
-    //     width: 414,
-    //     height: 315,
-    // },
 });
-
-// export const imageTips = () => (
-//     <>
-//         <View>
-//             <Image style={styles.imageTips} source={require('../../assets/images/tips.png')}/>
-//         </View>
-//     </>
-// );

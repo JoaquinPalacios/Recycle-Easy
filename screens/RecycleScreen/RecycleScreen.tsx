@@ -1,15 +1,24 @@
-import CategoriesComponent, { arrayData } from "../data/Categories";
+import CategoriesComponent, { arrayData } from "../../components/data/Categories";
 import { FlatList, StyleSheet, Text, View } from "react-native"
 
-import GridItemsComponent from "../gridItems/gridItems";
+import GridItemsComponent from "../../components/gridItems/gridItems";
 import React from "react";
 
 export interface RecycleComponentProps {
-    
+    navigation: any
+    route: any
 }
  
-const RecycleComponent: React.FC<RecycleComponentProps> = () => {
-    const renderGridItems = (data: { item: arrayData; }) => <GridItemsComponent item={data.item} onSelected={() => {}} />;
+const RecycleComponent: React.FC<RecycleComponentProps> = ({ navigation, route}) => {
+    const handleSelectedCategory = (item: {id: string, title: string}) => {
+        navigation.navigate('Types of plastic', {
+          categoryID: item.id,
+          name: item.title,
+        });
+    };
+
+
+    const renderGridItems = (data: { item: arrayData; }) => <GridItemsComponent item={data.item} onSelected={handleSelectedCategory} />;
     return (
         <>
             <View style={styles.container}>

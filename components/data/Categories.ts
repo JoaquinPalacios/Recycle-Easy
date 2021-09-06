@@ -1,27 +1,27 @@
 export interface arrayData {
-    id: number
+    id: string
     title: string
     imgBg: any
 }
 
  const CategoriesComponent: arrayData[] = [
     {
-        id: 1,
+        id: '1',
         title: 'Plastics',
         imgBg: require('../../assets/images/plastics.png'),
     },
     {
-        id: 2,
+        id: '2',
         title: 'Glass',
         imgBg: require('../../assets/images/glass.png'),
     },
     {
-        id: 3,
+        id: '3',
         title: 'Carton',
         imgBg: require('../../assets/images/carton.png'),
     },
     {
-        id: 4,
+        id: '4',
         title: 'Others',
         imgBg: require('../../assets/images/others.png'),
     },

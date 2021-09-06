@@ -3,13 +3,8 @@ import { StyleSheet, View } from "react-native"
 import React from "react";
 import colors from "../../constants/colors";
 
-// import EcoNoticias from "../EcoNoticias/EcoNoticias";
-
-
-
-
 export interface CardsComponentProps {
-    // buttonPressed: boolean
+    
 }
  
 const CardsComponent: React.FC<CardsComponentProps> = ({children}, style) => {

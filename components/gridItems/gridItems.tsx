@@ -39,11 +39,11 @@ const styles = StyleSheet.create({
     },
     container: {
       flex: 1,
-      borderRadius: 2,
+      borderRadius: 1,
       shadowColor: 'black',
       shadowOpacity: 0.25,
       shadowRadius: 6,
-      elevation: 3,
+      elevation: 1,
       justifyContent: 'center',
       alignItems: 'center',
       padding: 8,
