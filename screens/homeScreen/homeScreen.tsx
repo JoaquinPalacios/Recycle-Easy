@@ -1,9 +1,6 @@
-import { Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from "react-native"
+import { Image, ImageBackground, Platform, StyleSheet, Text, TouchableOpacity, View } from "react-native"
 
 import React from "react";
-
-// import CardsComponent from "../../components/cards/cards"
-
 
 export interface HomeComponentProps {
     navigation?: any
@@ -20,7 +17,7 @@ const HomeComponent: React.FC<HomeComponentProps> = ({navigation}) => {
                     <ImageBackground source={require('../../assets/images/tip.jpg')} style={styles.imgBg} imageStyle={{borderRadius: 10}}>
                     </ImageBackground>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate('Tips')} >
+                <TouchableOpacity onPress={() => navigation.navigate('Tips')} style={styles.touchIos} >
                     <ImageBackground source={require('../../assets/images/eco.jpg')} style={styles.imgBg} imageStyle={{borderRadius: 10}}>
 
                         <Text style={styles.textCard}>Eco News</Text>
@@ -61,6 +58,9 @@ const styles = StyleSheet.create({
         fontWeight: '700',
         textAlign: 'center',
         paddingBottom: 10,
+    },
+    touchIos: {
+        marginBottom: Platform.OS === 'ios' ? 30 : 5,
     },
 });
 

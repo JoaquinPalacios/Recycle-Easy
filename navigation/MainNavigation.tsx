@@ -22,7 +22,7 @@ export interface MainNAvigationComponentProps {
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
-export const stackNavigator = () => (
+export const homeStackNavigator = () => (
     <>
         <Stack.Navigator initialRouteName='Home'>
             <Stack.Screen 
@@ -37,8 +37,10 @@ export const stackNavigator = () => (
             <Stack.Screen 
             name='Eco News' 
             component={EcoNoticias}
-            options={{headerStyle: {
-                backgroundColor: '#43664A'
+            options={{
+                title: 'Eco News',
+                headerStyle: {
+                backgroundColor: '#43664A',
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
@@ -48,15 +50,33 @@ export const stackNavigator = () => (
             <Stack.Screen 
             name='Tips' 
             component={TipsComponent} 
-            options={{headerStyle: {
+            options={{
+                title: 'Tips',
+                headerStyle: {
                 backgroundColor: '#43664A'
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
                 fontSize: 27,
                 fontWeight: '600',
-            }}} />
-            <Stack.Screen 
+            }}} />                       
+        </Stack.Navigator>
+    </>
+);
+
+
+export const recycleStackNavigator = () => (
+    <>
+        <Stack.Navigator initialRouteName='Recycle'>
+            <Stack.Screen
+            name='Recycle'
+            component={RecycleComponent}
+            options={{
+                title: 'What would you like to recycle?',
+                headerTitleAlign: 'center',
+            }}
+            />
+            <Stack.Screen
             name='Types of plastic' 
             component={plasticsScreenComponent}
             options={({ route }: {route:any}) => (
@@ -67,7 +87,7 @@ export const stackNavigator = () => (
             component={SingleItemScreenComponent}
             options={({ route }: {route:any}) => (
                 {title: route.params.name,}
-                )} />            
+                )} /> 
         </Stack.Navigator>
     </>
 );
@@ -87,7 +107,7 @@ const MainNAvigationComponent: React.FC<MainNAvigationComponentProps> = () => {
                 }}>
                     <Tab.Screen 
                     name='Home' 
-                    component={stackNavigator} 
+                    component={homeStackNavigator} 
                     options={{
                         headerShown: false,
                         tabBarIcon: ({color}) => (<Ionicons 
@@ -97,8 +117,9 @@ const MainNAvigationComponent: React.FC<MainNAvigationComponentProps> = () => {
                     }} />
                     <Tab.Screen 
                     name='Recycle' 
-                    component={RecycleComponent} 
+                    component={recycleStackNavigator} 
                     options={{
+                        headerShown: false,
                         headerTitle: 'What would you like to recycle?', 
                         headerTitleAlign: 'center',
                         tabBarIcon: ({color}) => (<FontAwesome 

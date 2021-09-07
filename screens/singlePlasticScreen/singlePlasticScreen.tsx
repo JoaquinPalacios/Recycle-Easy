@@ -12,9 +12,6 @@ const SingleItemScreenComponent: React.FC<SingleItemScreenComponentProps> = ({ro
     return (
         <>
             <View style={styles.container}>
-                {/* <View style={styles.text}>
-                    <Text>{plastic?.id}</Text>
-                </View> */}
                 <View>
                     <Text style={styles.textTitle}>{plastic?.id} {plastic?.title}</Text>
                 </View>
