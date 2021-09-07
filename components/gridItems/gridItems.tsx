@@ -1,7 +1,7 @@
 import { ImageBackground, StyleSheet, Text, TouchableOpacity, View } from "react-native"
 
 import React from "react";
-import { arrayData } from "../data/Categories";
+import { arrayData } from "../../data/Categories";
 
 export interface GridItemsComponentProps {
     item: arrayData

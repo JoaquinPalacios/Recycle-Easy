@@ -1,8 +1,10 @@
 import { FlatList, StyleSheet, View } from "react-native";
-import PlasticTypesComponent, { arrayPlasticsData } from "../../components/data/PlasticTypes";
+import PlasticTypesComponent, { arrayPlasticsData } from "../../data/PlasticTypes";
+import React, { useEffect } from "react";
+import { filteredRecycle, selectRecycle } from "../../store/actions/recycle.action";
+import { useDispatch, useSelector } from "react-redux";
 
 import PlasticItemComponent from "../../components/plasticItem/plasticItem";
-import React from "react";
 
 interface plasticsScreenComponentProps {
     route: any
@@ -10,13 +12,21 @@ interface plasticsScreenComponentProps {
     renderItem: any
 }
  
-const plasticsScreenComponent: React.FC<plasticsScreenComponentProps> = ({ navigation, route }) => {
-    const plasticTypes = PlasticTypesComponent.filter(plastic => plastic.category === route.params.categoryID);
+const plasticsScreenComponent: React.FC<plasticsScreenComponentProps> = ({ navigation }) => {
+    const dispatch = useDispatch();
+    const categoryID = useSelector((state: any) => state.categories.selectedID);
+
+    const plasticTypes = useSelector((state: any) => state.recycle.filteredRecycle);
+    
     console.log('plasticTypes', plasticTypes)
 
+    useEffect(() => {
+        dispatch(filteredRecycle(categoryID));
+    }, [categoryID]);
+
     const handleSelected = (item: { id: string; title: string; }) => {
+        dispatch(selectRecycle(item.id));
         navigation.navigate('Plastic description', {
-            productID: item.id,
             name: item.title,
         });
     };

@@ -1,14 +1,17 @@
 import { StyleSheet, Text, View } from "react-native";
 
-import PlasticTypesComponent from '../../components/data/PlasticTypes';
 import React from 'react';
+import { useSelector } from "react-redux";
 
 interface SingleItemScreenComponentProps {
     route: any
 }
  
-const SingleItemScreenComponent: React.FC<SingleItemScreenComponentProps> = ({route}) => {
-    const plastic = PlasticTypesComponent.find(item => item.id === route.params.productID);
+const SingleItemScreenComponent: React.FC<SingleItemScreenComponentProps> = () => {
+    const plasticID = useSelector((state: any) => state.recycle.selectedID);
+    const plastics = useSelector((state: any) => state.recycle.list); 
+
+    const plastic = plastics.find((item: { id: string; }) => item.id === plasticID);
     return (
         <>
             <View style={styles.container}>

@@ -19,7 +19,6 @@ const HomeComponent: React.FC<HomeComponentProps> = ({navigation}) => {
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => navigation.navigate('Tips')} style={styles.touchIos} >
                     <ImageBackground source={require('../../assets/images/eco.jpg')} style={styles.imgBg} imageStyle={{borderRadius: 10}}>
-
                         <Text style={styles.textCard}>Eco News</Text>
                     </ImageBackground>
                 </TouchableOpacity>
@@ -42,8 +41,8 @@ const styles = StyleSheet.create({
         marginVertical: 50,
     },
     imgBg: {
-        width: 378,
-        height: 158,
+        width: Platform.OS === 'ios' ? 363 : 378,
+        height: Platform.OS === 'ios' ? 154 : 158,
         alignContent: 'center',
         justifyContent: 'center',
     },
@@ -60,7 +59,7 @@ const styles = StyleSheet.create({
         paddingBottom: 10,
     },
     touchIos: {
-        marginBottom: Platform.OS === 'ios' ? 30 : 5,
+        marginBottom: Platform.OS === 'ios' ? 25 : 5,
     },
 });
 
