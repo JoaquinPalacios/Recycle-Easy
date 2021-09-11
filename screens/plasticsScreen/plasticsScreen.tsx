@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, View } from "react-native";
+import { ActivityIndicator, FlatList, StyleSheet, View } from "react-native";
 import PlasticTypesComponent, { arrayPlasticsData } from "../../data/PlasticTypes";
 import React, { useEffect } from "react";
 import { filteredRecycle, selectRecycle } from "../../store/actions/recycle.action";
@@ -21,7 +21,10 @@ const plasticsScreenComponent: React.FC<plasticsScreenComponentProps> = ({ navig
     console.log('plasticTypes', plasticTypes)
 
     useEffect(() => {
-        dispatch(filteredRecycle(categoryID));
+        dispatch(filteredRecycle(categoryID))
+        return () => {
+            dispatch(filteredRecycle(''));
+        }
     }, [categoryID]);
 
     const handleSelected = (item: { id: string; title: string; }) => {
@@ -34,13 +37,14 @@ const plasticsScreenComponent: React.FC<plasticsScreenComponentProps> = ({ navig
         <PlasticItemComponent item={item} onSelected={handleSelected} />
     );
     return (
-        <>
-            <View style={styles.container}>
+        <>{plasticTypes !== null ?
+            (<View style={styles.container}>
                 <FlatList 
                 data={plasticTypes}
                 keyExtractor={item => item.id}
                 renderItem={renderItemPlastic} />
-            </View>            
+            </View>)
+            : <ActivityIndicator color="#000" size="large" />}
         </>
     );
 }
@@ -51,6 +55,8 @@ const styles = StyleSheet.create({
         alignContent: 'center',
         justifyContent: 'center',
         marginTop: 44,
+        marginHorizontal: 11,
+        borderRadius: 22,
     },
 });
 export default plasticsScreenComponent;

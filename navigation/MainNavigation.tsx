@@ -51,15 +51,22 @@ export const homeStackNavigator = () => (
             name='Tips' 
             component={TipsComponent} 
             options={{
-                title: 'Tips',
-                headerStyle: {
-                backgroundColor: '#43664A'
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-                fontSize: 27,
-                fontWeight: '600',
-            }}} />                       
+                // headerShown: false,
+                headerTransparent: true,
+                headerTintColor: "#fff",
+                // statusBarStyle: 
+            }}
+            // options={{
+            //     title: 'Tips',
+            //     headerStyle: {
+            //     backgroundColor: '#43664A'
+            // },
+            // headerTintColor: '#fff',
+            // headerTitleStyle: {
+            //     fontSize: 27,
+            //     fontWeight: '600',
+            // }}} 
+            />                       
         </Stack.Navigator>
     </>
 );
@@ -106,7 +113,7 @@ const MainNAvigationComponent: React.FC<MainNAvigationComponentProps> = () => {
                 tabBarInactiveTintColor: 'black',
                 }}>
                     <Tab.Screen 
-                    name='Home' 
+                    name='Home-Tab' 
                     component={homeStackNavigator} 
                     options={{
                         headerShown: false,

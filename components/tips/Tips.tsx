@@ -1,6 +1,7 @@
-import { StyleSheet, Text, View } from "react-native";
+import { ImageBackground, StyleSheet, Text, View } from "react-native";
 
 import CardsComponent from "../cards/cards";
+import { Header } from "react-native-elements";
 import React from "react";
 
 export interface TipsComponentProps {
@@ -10,6 +11,14 @@ export interface TipsComponentProps {
 const TipsComponent: React.FC<TipsComponentProps> = () => {
     return (
         <>
+            <View>
+                <Header
+                leftComponent={{ text: 'Tips', style: { color: '#fff', fontSize: 28, fontWeight: "700" } }}
+                rightComponent={{ icon: 'home', color: '#fff' }}
+                backgroundImage={require('../../assets/images/tips.png')}
+                statusBarProps={{ translucent: true, backgroundColor: "transparent"}}
+                containerStyle={{ height: 315 }} />
+            </View>
             <View style={styles.container}>
                 <Text style={styles.title}>Soy el componente Tips</Text>
                 <CardsComponent>
@@ -21,6 +30,10 @@ const TipsComponent: React.FC<TipsComponentProps> = () => {
 }
 
 const styles = StyleSheet.create({
+    // imageBg: {
+    //     width: "100%",
+    //     height: 315,
+    // },
     container: {
         flex: 1,
         justifyContent: 'center',

@@ -30,7 +30,7 @@ const App: React.FC<AppProps> = () => {
             <SafeAreaView style={styles.container}>
                   <View style={styles.viewNavigation}>
                     <MainNAvigationComponent />
-                    <StatusBar style="auto" />
+                    <StatusBar style="auto" backgroundColor={"transparent"} translucent={true} />
                     </View>  
                 </SafeAreaView>
         </Provider>        
