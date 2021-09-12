@@ -51,22 +51,10 @@ export const homeStackNavigator = () => (
             name='Tips' 
             component={TipsComponent} 
             options={{
-                // headerShown: false,
                 headerTransparent: true,
                 headerTintColor: "#fff",
-                // statusBarStyle: 
             }}
-            // options={{
-            //     title: 'Tips',
-            //     headerStyle: {
-            //     backgroundColor: '#43664A'
-            // },
-            // headerTintColor: '#fff',
-            // headerTitleStyle: {
-            //     fontSize: 27,
-            //     fontWeight: '600',
-            // }}} 
-            />                       
+              />                       
         </Stack.Navigator>
     </>
 );
@@ -92,9 +80,10 @@ export const recycleStackNavigator = () => (
             <Stack.Screen 
             name='Plastic description' 
             component={SingleItemScreenComponent}
-            options={({ route }: {route:any}) => (
-                {title: route.params.name,}
-                )} /> 
+            options={{
+                headerTransparent: true,
+                headerTintColor: "#1e1e1e",
+                }} /> 
         </Stack.Navigator>
     </>
 );
@@ -123,7 +112,7 @@ const MainNAvigationComponent: React.FC<MainNAvigationComponentProps> = () => {
                             color={color} />),
                     }} />
                     <Tab.Screen 
-                    name='Recycle' 
+                    name='Recycle-Tab' 
                     component={recycleStackNavigator} 
                     options={{
                         headerShown: false,

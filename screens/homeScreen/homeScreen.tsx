@@ -17,7 +17,7 @@ const HomeComponent: React.FC<HomeComponentProps> = ({navigation}) => {
                     <ImageBackground source={require('../../assets/images/tip.jpg')} style={styles.imgBg} imageStyle={{borderRadius: 10}}>
                     </ImageBackground>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate('Tips')} style={styles.touchIos} >
+                <TouchableOpacity onPress={() => navigation.navigate('Eco News')} style={styles.touchIos} >
                     <ImageBackground source={require('../../assets/images/eco.jpg')} style={styles.imgBg} imageStyle={{borderRadius: 10}}>
                         <Text style={styles.textCard}>Eco News</Text>
                     </ImageBackground>

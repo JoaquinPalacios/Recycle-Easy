@@ -12,7 +12,7 @@ const GridItemsComponent: React.FC<GridItemsComponentProps> = ({ item, onSelecte
     return (
         <>
             <View style={styles.gridItem}>
-                <ImageBackground source={item.imgBg} style={styles.image}>
+                <ImageBackground source={item.imgBg} style={styles.image} imageStyle={{borderRadius: 10}}>
                     <TouchableOpacity  
                     style={styles.container}
                     onPress={() => onSelected(item)}>
@@ -29,7 +29,7 @@ const GridItemsComponent: React.FC<GridItemsComponentProps> = ({ item, onSelecte
 const styles = StyleSheet.create({
     gridItem: {
       flex: 1,
-      borderRadius: 6,
+      borderRadius: 10,
       margin: 15,
       height: 110,
     },
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     },
     container: {
       flex: 1,
-      borderRadius: 1,
+      borderRadius: 5,
       shadowColor: 'black',
       shadowOpacity: 0.25,
       shadowRadius: 6,

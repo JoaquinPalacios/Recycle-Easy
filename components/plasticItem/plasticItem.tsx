@@ -34,6 +34,7 @@ const style = StyleSheet.create({
         paddingHorizontal: 5,
         marginVertical: 5,
         backgroundColor: colors.primary,
+        borderRadius: 8,
     },
     textId: {
         fontWeight: '700',

@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 
+import { Header } from "react-native-elements";
 import React from 'react';
 import { useSelector } from "react-redux";
 
@@ -14,6 +15,15 @@ const SingleItemScreenComponent: React.FC<SingleItemScreenComponentProps> = () =
     const plastic = plastics.find((item: { id: string; }) => item.id === plasticID);
     return (
         <>
+            <View>
+                <Header
+                placement="left"
+                    centerComponent={{ text: plastic.title, style: { color: '#fff', fontSize: 19, fontWeight: "700" } }}
+                    rightComponent={{ icon: 'home', color: '#fff', size: 30 }}
+                    backgroundImage={require('../../assets/images/plasticRecycle.jpg')}
+                    statusBarProps={{ translucent: true, backgroundColor: "transparent"}}
+                    containerStyle={{ height: 315 }} />
+            </View>
             <View style={styles.container}>
                 <View>
                     <Text style={styles.textTitle}>{plastic?.id} {plastic?.title}</Text>
@@ -30,8 +40,8 @@ const styles = StyleSheet.create({
         flex: 1,
         alignContent: 'center',
         justifyContent: 'center',
-        marginStart: 20,
-        marginEnd: 10,
+        marginHorizontal: 20,
+        overflow: "scroll",
     },
     textTitle: {
         fontSize: 20,
@@ -42,6 +52,7 @@ const styles = StyleSheet.create({
         fontSize: 19,
         fontWeight: '500',
         paddingVertical: 5,
+        textAlign: "justify",
     },
 }); 
 export default SingleItemScreenComponent;
