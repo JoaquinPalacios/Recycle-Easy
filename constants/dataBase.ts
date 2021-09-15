@@ -1,0 +1,1 @@
+export const URL_AUTH_API = 'https://securetoken.googleapis.com/v1/token?key=AIzaSyAM_kItyOHEpIzyuUDaSUkl7jmeh3O0JtA';

@@ -3,10 +3,11 @@ import 'react-native-gesture-handler';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
 
 import AppLoading from 'expo-app-loading';
-import MainNAvigationComponent from './navigation/MainNavigation';
+import MainNavigationComponent from './navigation/mainNavigation';
 import { Provider } from 'react-redux';
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
+// import TabNavigationComponent from './navigation/tabNavigation';
 import store from './store';
 import { useFonts } from 'expo-font';
 
@@ -29,7 +30,7 @@ const App: React.FC<AppProps> = () => {
         <Provider store={store}>
             <SafeAreaView style={styles.container}>
                   <View style={styles.viewNavigation}>
-                    <MainNAvigationComponent />
+                    <MainNavigationComponent />
                     <StatusBar style="auto" backgroundColor={"transparent"} translucent={true} />
                     </View>  
                 </SafeAreaView>
