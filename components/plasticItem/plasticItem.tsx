@@ -1,10 +1,11 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
+import { PlasticTypesData } from "../../data/interfaces";
 import React from 'react';
 import colors from "../../constants/colors";
 
 interface PlasticItemComponentProps {
-    item: any
+    item: PlasticTypesData
     onSelected: any
 }
  

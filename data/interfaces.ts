@@ -1,7 +1,7 @@
 export interface arrayCategoriesData {
     id: number
     title: String
-    image: File
+    image: File | any
 };
 export interface PlasticTypesData {
     id: number

@@ -66,7 +66,7 @@ export const recycleStackNavigator = () => (
     <>
         <Stack.Navigator initialRouteName='Recycle'>
             <Stack.Screen
-            name='Recycle'
+            name='Recycle-Stack'
             component={RecycleComponent}
             options={{
                 title: 'What would you like to recycle?',
@@ -114,7 +114,7 @@ const TabNavigationComponent: React.FC<TabNavigationComponentProps> = () => {
                             color={color} />),
                     }} />
                     <Tab.Screen 
-                    name='Recycle-Tab' 
+                    name='Recycle' 
                     component={recycleStackNavigator} 
                     options={{
                         headerShown: false,

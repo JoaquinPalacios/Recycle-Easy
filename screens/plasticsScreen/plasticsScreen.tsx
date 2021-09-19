@@ -1,10 +1,10 @@
 import { ActivityIndicator, FlatList, StyleSheet, View } from "react-native";
-import PlasticTypesComponent, { arrayPlasticsData } from "../../data/PlasticTypes";
 import React, { useEffect } from "react";
 import { filteredRecycle, selectRecycle } from "../../store/actions/recycle.action";
 import { useDispatch, useSelector } from "react-redux";
 
 import PlasticItemComponent from "../../components/plasticItem/plasticItem";
+import { PlasticTypesData } from "../../data/interfaces";
 
 interface plasticsScreenComponentProps {
     route: any
@@ -33,7 +33,7 @@ const plasticsScreenComponent: React.FC<plasticsScreenComponentProps> = ({ navig
             name: item.title,
         });
     };
-    const renderItemPlastic = ({item}: {item: arrayPlasticsData}) => (
+    const renderItemPlastic = ({item}: {item: PlasticTypesData}) => (
         <PlasticItemComponent item={item} onSelected={handleSelected} />
     );
     return (
@@ -41,7 +41,7 @@ const plasticsScreenComponent: React.FC<plasticsScreenComponentProps> = ({ navig
             (<View style={styles.container}>
                 <FlatList 
                 data={plasticTypes}
-                keyExtractor={item => item.id}
+                keyExtractor={(item?: any) => item.id}
                 renderItem={renderItemPlastic} />
             </View>)
             : <ActivityIndicator color="#000" size="large" />}

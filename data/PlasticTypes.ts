@@ -1,15 +1,6 @@
 import { PlasticTypesData } from "./interfaces";
-import React from "react";
 
-// export interface arrayPlasticsData {
-//     id: string
-//     type: string
-//     category: string
-//     title: string
-//     description: string
-// }
-
- const PlasticTypesComponent: PlasticTypesData[] = [
+const PlasticTypesComponent: PlasticTypesData[] = [
     {
         id: 1,
         type: 'plastic',

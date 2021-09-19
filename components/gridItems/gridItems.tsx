@@ -1,10 +1,10 @@
 import { ImageBackground, StyleSheet, Text, TouchableOpacity, View } from "react-native"
 
 import React from "react";
-import { arrayData } from "../../data/Categories";
+import { arrayCategoriesData } from "../../data/interfaces";
 
 export interface GridItemsComponentProps {
-    item: arrayData
+    item: arrayCategoriesData
     onSelected: any
 }
  
@@ -12,7 +12,7 @@ const GridItemsComponent: React.FC<GridItemsComponentProps> = ({ item, onSelecte
     return (
         <>
             <View style={styles.gridItem}>
-                <ImageBackground source={item.imgBg} style={styles.image} imageStyle={{borderRadius: 10}}>
+                <ImageBackground source={item.image} style={styles.image} imageStyle={{borderRadius: 10}}>
                     <TouchableOpacity  
                     style={styles.container}
                     onPress={() => onSelected(item)}>
