@@ -1,9 +1,11 @@
-import CategoriesComponent, { arrayData } from "../../data/Categories";
+// import CategoriesComponent, { arrayCategoriesData } from "../../data/Categories";
+
 import { FlatList, StyleSheet, Text, View } from "react-native"
 import { useDispatch, useSelector } from "react-redux";
 
 import GridItemsComponent from "../../components/gridItems/gridItems";
 import React from "react";
+import { arrayCategoriesData } from "../../data/interfaces";
 import { selectCategory } from "../../store/actions/category.action";
 
 export interface RecycleComponentProps {
@@ -22,7 +24,7 @@ const RecycleComponent: React.FC<RecycleComponentProps> = ({ navigation }) => {
     };
 
 
-    const renderGridItems = (data: { item: arrayData; }) => <GridItemsComponent item={data.item} onSelected={handleSelectedCategory} />;
+    const renderGridItems = (data: { item: arrayCategoriesData; }) => <GridItemsComponent item={data.item} onSelected={handleSelectedCategory} />;
     return (
         <>
             <View style={styles.container}>

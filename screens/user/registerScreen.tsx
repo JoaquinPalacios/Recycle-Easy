@@ -14,7 +14,7 @@ interface RegisterScreenComponentProps {
 
 const FORM_INPUT_UPDATE = 'FORM_INPUT_UPDATE';
 
-const formReducer: any = (state: any, action: any) => {
+const formReducer = (state: any, action: any) => {
     if (action.type === FORM_INPUT_UPDATE) {
         const inputValues = {
             ...state.inputValues,
@@ -52,7 +52,7 @@ const RegisterScreenComponent: React.FC<RegisterScreenComponentProps> = () => {
         formIsValid: false,
     });
 
-    const handleSignUp: any = (formState: any) => {
+    const handleSignUp = (formState: any) => {
         if (formState.formIsValid) {
             dispatch(signup(formState.inputValues.email, formState.inputValues.password))
         } else {

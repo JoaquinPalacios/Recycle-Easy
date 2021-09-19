@@ -1,18 +1,28 @@
 import React, { useEffect, useReducer } from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
 
-interface InputComponentProps {
-    
+interface InputComponentProps {    
+    id: string;
+    required?: boolean;
+    email?: boolean;
+    minLength?: number;
+    label: string
+    keyboardType?: any;
+    autoCapitalize: any;
+    secureTextEntry?: boolean;
+    errorText: string;
+    onInputChange: (id: string, value: string, isValid: boolean) => void;
 }
 const INPUT_CHANGE = 'INPUT_CHANGE';
 const INPUT_BLUR = 'INPUT_BLUR';
 
-// interface inputReducerProps {
-//     state: any
-//     action: any
-// }
+interface State {
+  value: string;
+  isValid: boolean;
+  touched: boolean;
+}
 
-const inputReducer: any = (state: any, action: any) => {
+const inputReducer = (state: State, action: any): State => {
     switch(action.type) {
       case INPUT_CHANGE:
         return {
@@ -30,7 +40,7 @@ const inputReducer: any = (state: any, action: any) => {
     }
 };
 
-const InputComponent: React.FC<InputComponentProps> = (props: any) => {
+const InputComponent: React.FC<InputComponentProps> = (props) => {
     const [inputState, inputDispatch] = useReducer(inputReducer, {
         value: '',
         isValid: false,
@@ -39,13 +49,13 @@ const InputComponent: React.FC<InputComponentProps> = (props: any) => {
 
     const { onInputChange, id } = props;
 
-    useEffect((): (() => void) => {
+    useEffect(() => {
         return onInputChange(id, inputState.value, inputState.isValid);
     }, [onInputChange, id, inputState])
 
-    const handleChangeText = (text: { trim: () => { (): any; new(): any; length: number; }; toLowerCase: () => string; length: number; }) => {
+    const handleChangeText = (text: string) => {
       const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      let isValid = true;
+      let isValid: boolean = true;
 
       if (props.required && text.trim().length === 0) isValid = false;
       if (props.email && !emailRegex.test(text.toLowerCase())) isValid = false;
