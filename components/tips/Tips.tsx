@@ -14,7 +14,7 @@ const TipsComponent: React.FC<TipsComponentProps> = () => {
             <View>
                 <Header
                 leftComponent={{ text: 'Tips', style: { color: '#fff', fontSize: 28, fontWeight: "700" } }}
-                rightComponent={{ icon: 'home', color: '#fff' }}
+                rightComponent={{ icon: 'lightbulb', color: '#fff' }}
                 backgroundImage={require('../../assets/images/tips.png')}
                 statusBarProps={{ translucent: true, backgroundColor: "transparent"}}
                 containerStyle={{ height: 315 }} />

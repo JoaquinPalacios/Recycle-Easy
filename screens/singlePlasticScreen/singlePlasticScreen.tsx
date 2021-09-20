@@ -19,7 +19,7 @@ const SingleItemScreenComponent: React.FC<SingleItemScreenComponentProps> = () =
                 <Header
                 placement="left"
                     centerComponent={{ text: plastic.title, style: { color: '#fff', fontSize: 19, fontWeight: "700" } }}
-                    rightComponent={{ icon: 'home', color: '#fff', size: 30 }}
+                    rightComponent={{ icon: 'recycle', color: '#fff', size: 30, type: 'font-awesome' }}
                     backgroundImage={require('../../assets/images/plasticRecycle.jpg')}
                     statusBarProps={{ translucent: true, backgroundColor: "transparent"}}
                     containerStyle={{ height: 315 }} />

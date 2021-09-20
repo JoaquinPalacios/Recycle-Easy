@@ -1,10 +1,10 @@
 export interface arrayCategoriesData {
-    id: number
-    title: String
+    id: string
+    title: string
     image: File | any
 };
 export interface PlasticTypesData {
-    id: number
+    id: string
     type: string
     category: string
     title: string

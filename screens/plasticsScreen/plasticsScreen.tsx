@@ -11,12 +11,13 @@ interface plasticsScreenComponentProps {
     navigation: any
     renderItem: any
 }
- 
+
+
 const plasticsScreenComponent: React.FC<plasticsScreenComponentProps> = ({ navigation }) => {
     const dispatch = useDispatch();
     const categoryID = useSelector((state: any) => state.categories.selectedID);
 
-    const plasticTypes = useSelector((state: any) => state.recycle.filteredRecycle);
+    const plasticTypes = useSelector((state?: any) => state.recycle.filteredRecycle);
     
     console.log('plasticTypes console', plasticTypes)
 
