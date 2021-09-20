@@ -1,6 +1,6 @@
 import { ActivityIndicator, FlatList, StyleSheet, View } from "react-native";
 import React, { useEffect } from "react";
-import { filteredRecycle, selectRecycle } from "../../store/actions/recycle.action";
+import { filterRecycle, selectRecycle } from "../../store/actions/recycle.action";
 import { useDispatch, useSelector } from "react-redux";
 
 import PlasticItemComponent from "../../components/plasticItem/plasticItem";
@@ -18,12 +18,12 @@ const plasticsScreenComponent: React.FC<plasticsScreenComponentProps> = ({ navig
 
     const plasticTypes = useSelector((state: any) => state.recycle.filteredRecycle);
     
-    console.log('plasticTypes', plasticTypes)
+    console.log('plasticTypes console', plasticTypes)
 
     useEffect(() => {
-        dispatch(filteredRecycle(categoryID))
+        dispatch(filterRecycle(categoryID))
         return () => {
-            dispatch(filteredRecycle(''));
+            dispatch(filterRecycle(''));
         }
     }, [categoryID]);
 

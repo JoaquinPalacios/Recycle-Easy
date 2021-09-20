@@ -2,7 +2,7 @@ import { combineReducers, createStore } from "redux";
 
 import AuthReducer from "./reducers/auth.reducer";
 import CategoryReducer from "./reducers/category.reducer";
-import RecycleReducer from "./reducers/recycle.action";
+import RecycleReducer from "./reducers/recycle.reducer";
 
 const RootReducer = combineReducers({
     categories: CategoryReducer,

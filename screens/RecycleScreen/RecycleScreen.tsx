@@ -23,7 +23,6 @@ const RecycleComponent: React.FC<RecycleComponentProps> = ({ navigation }) => {
         });
     };
 
-
     const renderGridItems = (data: { item: arrayCategoriesData; }) => <GridItemsComponent item={data.item} onSelected={handleSelectedCategory} />;
     return (
         <>

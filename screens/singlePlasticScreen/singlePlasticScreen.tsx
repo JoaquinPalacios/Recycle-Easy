@@ -10,7 +10,7 @@ interface SingleItemScreenComponentProps {
  
 const SingleItemScreenComponent: React.FC<SingleItemScreenComponentProps> = () => {
     const plasticID = useSelector((state: any) => state.recycle.selectedID);
-    const plastics = useSelector((state: any) => state.recycle.list); 
+    const plastics = useSelector((state?: any) => state.recycle.list); 
 
     const plastic = plastics.find((item: { id: string; }) => item.id === plasticID);
     return (

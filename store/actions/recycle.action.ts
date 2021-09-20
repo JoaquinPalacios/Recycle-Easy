@@ -6,7 +6,7 @@ export const selectRecycle = (recycleID: string) => ({
   recycleID,
 });
 
-export const filteredRecycle = (categoryID: string) => ({
+export const filterRecycle = (categoryID: string) => ({
   type: FILTER_RECYCLE,
   categoryID,
 })

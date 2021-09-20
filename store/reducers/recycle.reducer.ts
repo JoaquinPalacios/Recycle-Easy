@@ -4,7 +4,7 @@ import PlasticTypesComponent from "../../data/PlasticTypes";
 
 const initialState = {
     list: PlasticTypesComponent,
-    filteredPlastics: [],
+    filteredRecycle: [],
     selectedID: null,
 };
 
