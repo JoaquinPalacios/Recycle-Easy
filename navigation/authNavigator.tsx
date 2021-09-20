@@ -1,4 +1,5 @@
 import LoginScreenComponent from "../screens/user/loginScreen";
+import React from 'react';
 import RegisterScreenComponent from "../screens/user/registerScreen";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 

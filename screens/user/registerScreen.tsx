@@ -57,7 +57,7 @@ const RegisterScreenComponent: React.FC<RegisterScreenComponentProps> = () => {
             dispatch(signup(formState.inputValues.email, formState.inputValues.password))
         } else {
             Alert.alert(
-                'invalid form',
+                'Invalid form',
                 'Please insert valid email and password',
                 [{ text: 'Ok' }]
             );
@@ -76,16 +76,16 @@ const RegisterScreenComponent: React.FC<RegisterScreenComponentProps> = () => {
     return (
         <>
             <AuthScreenWrapperComponent
-            title="REGISTRO"
-            message="¿Ya tienes cuenta?"
-            buttonText="Ingresar"
+            title="SING UP"
+            message="Already register?"
+            buttonText="Login"
             buttonPath="Login">
                 <InputComponent
                   id="email"
                   label="Email"
                   keyboardType="email-address"
                   autoCapitalize="none"
-                  errorText="Por favor ingresa un email válido"
+                  errorText="Please insert valid email"
                   required
                   email
                   onInputChange={onInputChangeHandler}
@@ -95,13 +95,13 @@ const RegisterScreenComponent: React.FC<RegisterScreenComponentProps> = () => {
                   label="Password"
                   secureTextEntry
                   autoCapitalize="none"
-                  errorText="La contraseña debe ser mínimo 6 caracteres"
+                  errorText="Password must be a minimum of 6 characters"
                   required
                   minLength={6}
                   onInputChange={onInputChangeHandler}
                 />
                 <Button
-                  title="REGISTRARME"
+                  title="SIGN UP"
                   onPress={handleSignUp}
                   buttonStyle={styles.button}
                 />

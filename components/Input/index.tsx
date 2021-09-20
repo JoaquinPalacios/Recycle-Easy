@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
       width: '100%',
     },
     label: {
-      fontFamily: 'OpenSansBold',
+      // fontFamily: 'OpenSansBold',
       marginVertical: 8,
     },
     input: {

@@ -15,7 +15,7 @@ const AuthScreenWrapperComponent: React.FC<AuthScreenWrapperComponentProps> = ({
     const navigation = useNavigation();
     return (
         <>
-            <KeyboardAvoidingView>
+            <KeyboardAvoidingView style={styles.screen}>
                 <View style={styles.container}>
                     <Text style={styles.title}>{title}</Text>
                     {children}
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     },
     title: {
       fontSize: 24,
-      fontFamily: 'OpenSansBold',
+      // fontFamily: 'OpenSansBold',
       marginBottom: 18,
       textAlign: 'center',
     },
@@ -57,12 +57,12 @@ const styles = StyleSheet.create({
     },
     promptMessage: {
       fontSize: 16,
-      fontFamily: 'OpenSans',
+      // fontFamily: 'OpenSans',
       color: '#333',
     },
     promptButton: {
       fontSize: 16,
-      fontFamily: 'OpenSansBold',
+      // fontFamily: 'OpenSansBold',
       color: colors.primary,
     },
   });
