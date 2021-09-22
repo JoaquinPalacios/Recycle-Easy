@@ -17,6 +17,7 @@ const MainNavigationComponent: React.FC<MainNavigationComponentProps> = () => {
                 {userId
                     ? <TabNavigationComponent />
                     : <AuthNavigatorComponent />}
+                    {/* <TabNavigationComponent /> */}
             </NavigationContainer>
         </>
     );

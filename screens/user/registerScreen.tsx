@@ -42,10 +42,12 @@ const RegisterScreenComponent: React.FC<RegisterScreenComponentProps> = () => {
     const dispatch = useDispatch();
     const [formState, formDispatch] = useReducer(formReducer, {
         inputValues: {
+            name: '',
             email: '',
             password: '',
         },
         inputValidities: {
+            name: false,
             email: false,
             password: false,
         },
@@ -54,7 +56,11 @@ const RegisterScreenComponent: React.FC<RegisterScreenComponentProps> = () => {
 
     const handleSignUp = (formState: any) => {
         if (formState.formIsValid) {
-            dispatch(signup(formState.inputValues.email, formState.inputValues.password))
+            console.log('handleSingUp', formState.formIsValid)
+            dispatch(signup(
+                formState.inputValues.name,
+                formState.inputValues.email,
+                formState.inputValues.password))
         } else {
             Alert.alert(
                 'Invalid form',
@@ -80,6 +86,14 @@ const RegisterScreenComponent: React.FC<RegisterScreenComponentProps> = () => {
             message="Already register?"
             buttonText="Login"
             buttonPath="Login">
+                <InputComponent
+                  id="name"
+                  label="Name"
+                  errorText="Enter your name"
+                  required
+                  onlyLetters
+                  onInputChange={onInputChangeHandler}
+                />
                 <InputComponent
                   id="email"
                   label="Email"

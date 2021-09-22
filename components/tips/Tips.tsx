@@ -17,7 +17,7 @@ const TipsComponent: React.FC<TipsComponentProps> = () => {
                 rightComponent={{ icon: 'lightbulb', color: '#fff' }}
                 backgroundImage={require('../../assets/images/tips.png')}
                 statusBarProps={{ translucent: true, backgroundColor: "transparent"}}
-                containerStyle={{ height: 315 }} />
+                containerStyle={{ height: 315, alignItems: 'flex-end' }} />
             </View>
             <View style={styles.container}>
                 <Text style={styles.title}>Soy el componente Tips</Text>

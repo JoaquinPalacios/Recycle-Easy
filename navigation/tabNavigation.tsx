@@ -14,9 +14,7 @@ import colors from "../constants/colors";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import plasticsScreenComponent from "../screens/plasticsScreen/plasticsScreen";
-
-// import { NavigationContainer } from "@react-navigation/native";
-
+import { useSelector } from "react-redux";
 
 export interface TabNavigationComponentProps {
     
@@ -24,7 +22,9 @@ export interface TabNavigationComponentProps {
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
-export const homeStackNavigator = () => (
+export const homeStackNavigator = () => {
+    const user = useSelector((state: any) => state.auth.data);
+    return (
     <>
         <Stack.Navigator initialRouteName='Home'>
             <Stack.Screen 
@@ -55,11 +55,13 @@ export const homeStackNavigator = () => (
             options={{
                 headerTransparent: true,
                 headerTintColor: "#fff",
+                headerBackTitle: '',
+                headerTitle: '',
             }}
               />                       
         </Stack.Navigator>
     </>
-);
+)};
 
 
 export const recycleStackNavigator = () => (
@@ -84,7 +86,12 @@ export const recycleStackNavigator = () => (
             component={SingleItemScreenComponent}
             options={{
                 headerTransparent: true,
-                headerTintColor: "#1e1e1e",
+                headerTintColor: '#fff',
+                headerBackTitleVisible: false,
+                headerBackTitle: '',
+                headerTitle: '',
+                headerBlurEffect: 'systemThickMaterial',
+                // headerBackImageSource: <Ionicons name="arrow-back-outline" />,
                 }} /> 
         </Stack.Navigator>
     </>

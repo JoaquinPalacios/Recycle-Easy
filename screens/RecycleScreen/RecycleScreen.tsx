@@ -1,11 +1,10 @@
-// import CategoriesComponent, { arrayCategoriesData } from "../../data/Categories";
-
 import { FlatList, StyleSheet, Text, View } from "react-native"
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import GridItemsComponent from "../../components/gridItems/gridItems";
-import React from "react";
 import { arrayCategoriesData } from "../../data/interfaces";
+import { lookupUser } from "../../store/actions/auth.action";
 import { selectCategory } from "../../store/actions/category.action";
 
 export interface RecycleComponentProps {
@@ -16,6 +15,12 @@ export interface RecycleComponentProps {
 const RecycleComponent: React.FC<RecycleComponentProps> = ({ navigation }) => {
     const dispatch = useDispatch();
     const categories = useSelector((state: any) => state.categories.list)
+    const token = useSelector((state: any) => state.auth.token);
+
+    useEffect(() => {
+        dispatch(lookupUser());
+    }, [])
+
     const handleSelectedCategory = (item: {id: string, title: string}) => {
         dispatch(selectCategory(item.id));
         navigation.navigate('Types of plastic', {

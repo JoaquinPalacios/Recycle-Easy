@@ -22,7 +22,7 @@ const SingleItemScreenComponent: React.FC<SingleItemScreenComponentProps> = () =
                     rightComponent={{ icon: 'recycle', color: '#fff', size: 30, type: 'font-awesome' }}
                     backgroundImage={require('../../assets/images/plasticRecycle.jpg')}
                     statusBarProps={{ translucent: true, backgroundColor: "transparent"}}
-                    containerStyle={{ height: 315 }} />
+                    containerStyle={{ height: 315, alignItems: 'flex-end' }} />
             </View>
             <View style={styles.container}>
                 <View>

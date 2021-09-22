@@ -15,7 +15,7 @@ const AuthScreenWrapperComponent: React.FC<AuthScreenWrapperComponentProps> = ({
     const navigation = useNavigation();
     return (
         <>
-            <KeyboardAvoidingView style={styles.screen}>
+            <KeyboardAvoidingView behavior="height" style={styles.screen}>
                 <View style={styles.container}>
                     <Text style={styles.title}>{title}</Text>
                     {children}
