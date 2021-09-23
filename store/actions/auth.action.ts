@@ -1,4 +1,4 @@
-import { URL_AUTH_API } from "../../constants/dataBase";
+import { URL_AUTH_API, URL_LOOKUP_API, URL_UPDATE_API } from "../../constants/dataBase";
 
 export const SIGNUP = 'SIGNUP';
 export const LOOKUP = 'LOOKUP';
@@ -19,7 +19,7 @@ export const signup = (name: string, email: string, password: string) => {
 
     const data = await response.json();
 
-    const updateResponse = await fetch(URL_AUTH_API, {
+    const updateResponse = await fetch(URL_UPDATE_API, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -40,9 +40,9 @@ export const signup = (name: string, email: string, password: string) => {
   }
 }
 
-export const lookupUser = () => {
+export const lookupUser = (token?: any) => {
   return async (dispatch: any) => {
-    const response = await fetch(URL_AUTH_API, {
+    const response = await fetch(URL_LOOKUP_API, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

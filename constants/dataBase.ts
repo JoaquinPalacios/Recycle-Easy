@@ -1,1 +1,3 @@
-export const URL_AUTH_API = 'https://securetoken.googleapis.com/v1/token?key=AIzaSyAM_kItyOHEpIzyuUDaSUkl7jmeh3O0JtA';
+export const URL_AUTH_API = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAM_kItyOHEpIzyuUDaSUkl7jmeh3O0JtA';
+export const URL_UPDATE_API = 'https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyAM_kItyOHEpIzyuUDaSUkl7jmeh3O0JtA';
+export const URL_LOOKUP_API  = 'https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=AIzaSyAM_kItyOHEpIzyuUDaSUkl7jmeh3O0JtA';
