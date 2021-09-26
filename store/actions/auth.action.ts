@@ -17,20 +17,30 @@ export const signup = (name: string, email: string, password: string) => {
       }),
     });
 
+    if (!response.ok) {
+      const errorResponse = await response.json();
+      const errorID = errorResponse.error.message;
+
+      let message = 'You could not sign up, please try again';
+      if (errorID === 'EMAIL_EXISTS') message = 'This email is already register';
+
+      throw new Error(message);
+    }
+
     const data = await response.json();
 
-    const updateResponse = await fetch(URL_UPDATE_API, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        idToken: data.idToken,
-        displayName: name,
-      }),
-    });
+    // const updateResponse = await fetch(URL_UPDATE_API, {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify({
+    //     idToken: data.idToken,
+    //     displayName: name,
+    //   }),
+    // });
 
-    const userData = await updateResponse.json();
+    // const userData = await updateResponse.json();
 
     dispatch({
       type: SIGNUP,
