@@ -1,8 +1,9 @@
-import { combineReducers, createStore } from "redux";
+import { applyMiddleware, combineReducers, createStore } from "redux";
 
 import AuthReducer from "./reducers/auth.reducer";
 import CategoryReducer from "./reducers/category.reducer";
 import RecycleReducer from "./reducers/recycle.reducer";
+import thunk from "redux-thunk";
 
 const RootReducer = combineReducers({
     categories: CategoryReducer,
@@ -10,4 +11,4 @@ const RootReducer = combineReducers({
     auth: AuthReducer,
 });
 
-export default createStore(RootReducer);
+export default createStore(RootReducer, applyMiddleware(thunk));
