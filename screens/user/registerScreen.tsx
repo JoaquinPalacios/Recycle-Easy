@@ -1,4 +1,5 @@
 import { Alert, StyleSheet } from "react-native";
+import { FORM_INPUT_UPDATE, formReducer } from "./formReducer";
 import React, { useCallback, useReducer } from "react";
 
 import AuthScreenWrapperComponent from "../../components/authScreenWrapper";
@@ -11,32 +12,6 @@ import { useDispatch } from "react-redux";
 interface RegisterScreenComponentProps {
     
 }
-
-const FORM_INPUT_UPDATE = 'FORM_INPUT_UPDATE';
-
-const formReducer = (state: any, action: any) => {
-    if (action.type === FORM_INPUT_UPDATE) {
-        const inputValues = {
-            ...state.inputValues,
-            [action.input]: action.value,
-        }
-        const inputValidities = {
-            ...state.inputValidities,
-            [action.input]: action.isValid,
-        }
-        let formIsValid = true;
-
-        for (const key in inputValidities) {
-            formIsValid = formIsValid && inputValidities[key];
-        }
-        return {
-            formIsValid,
-            inputValues,
-            inputValidities
-        }
-    }
-    return state;
-};
 
 const RegisterScreenComponent: React.FC<RegisterScreenComponentProps> = () => {
     const dispatch = useDispatch();
@@ -54,7 +29,7 @@ const RegisterScreenComponent: React.FC<RegisterScreenComponentProps> = () => {
         formIsValid: false,
     });
 
-    const handleSignUp = (formState: any) => {
+    const handleSignUp = () => {
         if (formState.formIsValid) {
             console.log('handleSingUp', formState.formIsValid)
             dispatch(signup(
@@ -84,7 +59,7 @@ const RegisterScreenComponent: React.FC<RegisterScreenComponentProps> = () => {
             <AuthScreenWrapperComponent
             title="SING UP"
             message="Already register?"
-            buttonText="Login"
+            buttonText="Log in"
             buttonPath="Login">
                 <InputComponent
                   id="name"

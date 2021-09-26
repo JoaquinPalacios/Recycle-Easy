@@ -6,8 +6,8 @@ import { useNavigation } from '@react-navigation/native';
 
 interface AuthScreenWrapperComponentProps {
     title: string
-    message: string | any
-    buttonText: any
+    message: string
+    buttonText: string
     buttonPath: any
 }
  

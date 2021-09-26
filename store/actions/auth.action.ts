@@ -1,7 +1,7 @@
-import { URL_AUTH_API, URL_LOOKUP_API, URL_UPDATE_API } from "../../constants/dataBase";
+import { URL_AUTH_API, URL_LOGIN_API, URL_UPDATE_API } from "../../constants/dataBase";
 
 export const SIGNUP = 'SIGNUP';
-export const LOOKUP = 'LOOKUP';
+export const LOGIN = 'LOGIN';
 
 export const signup = (name: string, email: string, password: string) => {
   return async (dispatch: any) => {
@@ -40,22 +40,56 @@ export const signup = (name: string, email: string, password: string) => {
   }
 }
 
-export const lookupUser = (token?: any) => {
+export const login = (email: string, password: string) => {
   return async (dispatch: any) => {
-    const response = await fetch(URL_LOOKUP_API, {
+    const response = await fetch(URL_LOGIN_API, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        idToken: token,
+        email,
+        password,
+        returnSecureToken: true,
       }),
     });
+
+    if (!response.ok) {
+      const errorResponse = await response.json();
+      const errorID = errorResponse.error.message;
+
+      let message = 'Can not log in';
+      if (errorID === 'EMAIL_NOT_FOUND') message = 'We do not have this email in our data base';
+
+      throw new Error(message);
+    }
+
     const data = await response.json();
 
     dispatch({
-      type: LOOKUP,
-      data,
+      type: LOGIN,
+      token: data.isToken,
+      userId: data.localId,
     });
   }
 }
+
+// export const lookupUser = (token?: any) => {
+//   return async (dispatch: any) => {
+//     const response = await fetch(URL_LOOKUP_API, {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify({
+//         idToken: token,
+//       }),
+//     });
+//     const data = await response.json();
+
+//     dispatch({
+//       type: LOOKUP,
+//       data,
+//     });
+//   }
+// }
