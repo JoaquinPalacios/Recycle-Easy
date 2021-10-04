@@ -6,9 +6,6 @@ import GridItemsComponent from "../../components/gridItems/gridItems";
 import { arrayCategoriesData } from "../../data/interfaces";
 import { selectCategory } from "../../store/actions/category.action";
 
-// import { lookupUser } from "../../store/actions/auth.action";
-
-
 export interface RecycleComponentProps {
     navigation: any
     route: any
@@ -17,11 +14,6 @@ export interface RecycleComponentProps {
 const RecycleComponent: React.FC<RecycleComponentProps> = ({ navigation }) => {
     const dispatch = useDispatch();
     const categories = useSelector((state: any) => state.categories.list)
-    // const token = useSelector((state: any) => state.auth.token);
-
-    // useEffect(() => {
-    //     dispatch(lookupUser());
-    // }, [])
 
     const handleSelectedCategory = (item: {id: string, title: string}) => {
         dispatch(selectCategory(item.id));

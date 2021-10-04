@@ -11,6 +11,7 @@ export const signup = (name: string, email: string, password: string) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
+        name,
         email,
         password,
         returnSecureToken: true,
@@ -28,19 +29,6 @@ export const signup = (name: string, email: string, password: string) => {
     }
 
     const data = await response.json();
-
-    // const updateResponse = await fetch(URL_UPDATE_API, {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({
-    //     idToken: data.idToken,
-    //     displayName: name,
-    //   }),
-    // });
-
-    // const userData = await updateResponse.json();
 
     dispatch({
       type: SIGNUP,
@@ -83,23 +71,3 @@ export const login = (email: string, password: string) => {
     });
   }
 }
-
-// export const lookupUser = (token?: any) => {
-//   return async (dispatch: any) => {
-//     const response = await fetch(URL_LOOKUP_API, {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify({
-//         idToken: token,
-//       }),
-//     });
-//     const data = await response.json();
-
-//     dispatch({
-//       type: LOOKUP,
-//       data,
-//     });
-//   }
-// }
