@@ -29,6 +29,7 @@ const LoginScreenComponent: React.FC<LoginScreenComponentProps> = () => {
 
     const handleLogIn = () => {
         if (formState.formIsValid) {
+            console.log('hanldeLogin', formState.formIsValid)
             dispatch(login(formState.inputValues.email, formState.inputValues.password))
         } else {
             Alert.alert(

@@ -9,6 +9,7 @@ const RootReducer = combineReducers({
     categories: CategoryReducer,
     recycle: RecycleReducer,
     auth: AuthReducer,
+    // database: DataBaseReducer,
 });
 
 export default createStore(RootReducer, applyMiddleware(thunk));

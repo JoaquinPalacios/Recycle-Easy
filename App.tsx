@@ -7,9 +7,16 @@ import MainNavigationComponent from './navigation/mainNavigation';
 import { Provider } from 'react-redux';
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-// import TabNavigationComponent from './navigation/tabNavigation';
+import { init } from './db';
 import store from './store';
 import { useFonts } from 'expo-font';
+
+init()
+.then(() => console.log('Database initialized'))
+.catch(err => {
+  console.log('Database failed to connect');
+  console.log(err.message);
+})
 
 export interface AppProps {
   

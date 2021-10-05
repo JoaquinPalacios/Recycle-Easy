@@ -6,7 +6,8 @@ interface InputComponentProps {
     required?: boolean;
     email?: boolean;
     minLength?: number;
-    label: string
+    maxLength?: number;
+    label: string;
     keyboardType?: any;
     autoCapitalize?: any;
     secureTextEntry?: boolean;
@@ -62,6 +63,7 @@ const InputComponent: React.FC<InputComponentProps> = (props) => {
       if (props.required && text.trim().length === 0) isValid = false;
       if (props.email && !emailRegex.test(text.toLowerCase())) isValid = false;
       if (props.minLength && text.length < props.minLength) isValid = false;
+      if (props.maxLength && text.length > props.maxLength) isValid = false;
       if (props.onlyLetters && !letterRegex.test(text)) isValid = false;
 
       inputDispatch({
