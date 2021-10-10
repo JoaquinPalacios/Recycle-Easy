@@ -1,7 +1,5 @@
 import { URL_AUTH_API, URL_LOGIN_API } from "../../constants/dataBase";
-import { init, userDetails } from "../../db";
-
-// import { userDetails } from "../../db";
+import { fetchUser, init } from "../../db";
 
 export const SIGNUP = 'SIGNUP';
 export const LOGIN = 'LOGIN';
@@ -33,15 +31,21 @@ export const signup = (name: string, email: string, password: string) => {
 
     const data = await response.json();
     console.log('data', data);
-    
-    userDetails(name, email, password)
-    .then(() => response)
+
+
+    init()
+    .then(() => data)
     .catch(err => {
-      console.log('Database failed to connect / auth.action');
+      console.log('Database failed to connect');
       console.log(err.message);
     })
-    console.log('data userDetails', response)
-    console.log('userDetails after data in auth.action - name', userDetails(name, email, password))
+
+    fetchUser()
+    .then(() => console.log('result fetchUser', name, email, password))
+    .catch(err => {
+      console.log('table not created yet');
+      console.log(err.message);
+    })
 
 
     dispatch({
