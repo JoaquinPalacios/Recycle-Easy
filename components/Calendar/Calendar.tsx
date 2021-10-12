@@ -1,17 +1,28 @@
+import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native"
 
 import { Button } from "react-native-elements";
 import InputComponent from "../Input";
-import React from "react";
+import LocationPickerComponent from "../LocationPicker";
+import { ScrollView } from "react-native-gesture-handler";
 import colors from "../../constants/colors";
+import { useDispatch } from "react-redux";
 
 export interface CalendarComponentProps {
     
 }
  
 const CalendarComponent: React.FC<CalendarComponentProps> = () => {
+    const dispatch = useDispatch();
+    const [title, setTitle] = useState<any>('');
+    const [location, setLocation] = useState<any>();
+
+    const handleTitleChange = (text: any) => setTitle(text);
+
+    const handlePickLocation = (loc:any) => {setLocation(loc)}
     return (
         <>
+        <ScrollView>
             <View style={styles.container}>
                 <Text style={styles.text}>Find out when your bin is collected</Text>
                 <View style={styles.inputs}>
@@ -21,8 +32,9 @@ const CalendarComponent: React.FC<CalendarComponentProps> = () => {
                     autoCapitalize='characters'
                     required
                     errorText='Please insert valid State'
-                    onInputChange={() => (console.log('Calendar State input'))}
-                    />
+                    onInputChange={handleTitleChange}
+                    />                    
+                    {/* <LocationPickerComponent onLocation={handlePickLocation} /> */}
                     <InputComponent
                     id='PC'
                     label='Post Code'
@@ -33,6 +45,7 @@ const CalendarComponent: React.FC<CalendarComponentProps> = () => {
                     errorText='Please insert valid Post Code'
                     onInputChange={() => (console.log('Calendar Post Code input'))}
                     />
+                    <LocationPickerComponent />
                     <Button
                     title='Submit'
                     onPress={() => (console.log('submit de calendar'))}
@@ -40,6 +53,7 @@ const CalendarComponent: React.FC<CalendarComponentProps> = () => {
                     />
                 </View>
             </View>
+            </ScrollView>
         </>
     );
 }
@@ -54,7 +68,8 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 19,
-        paddingBottom: 88,
+        paddingBottom: 44,
+        paddingTop: 22,
         textAlign: 'center',
     },
     inputs: {
