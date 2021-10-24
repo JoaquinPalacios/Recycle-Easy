@@ -1,11 +1,11 @@
-import { PlasticTypesData, arrayCategoriesData } from "../../data/interfaces";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
+import { PlasticTypesData } from "../../data/interfaces";
 import React from 'react';
 import colors from "../../constants/colors";
 
 interface PlasticItemComponentProps {
-    item: PlasticTypesData | arrayCategoriesData
+    item: PlasticTypesData
     onSelected: any
 }
  
@@ -14,9 +14,9 @@ const PlasticItemComponent: React.FC<PlasticItemComponentProps> = ({ item, onSel
         <>
             <TouchableOpacity onPress={() => onSelected(item)}>
                 <View style={style.container}>
-                    <View>
+                    {(item.id < '8' && item.id !== '10' && item.id !== '11' && item.id !== '12' ) ? <View>
                         <Text style={style.textId}>{item.id} </Text>
-                    </View>
+                    </View> : null}                    
                     <View>
                         <Text style={style.text}>{item.title}</Text>
                     </View>

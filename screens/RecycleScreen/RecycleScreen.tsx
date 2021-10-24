@@ -1,14 +1,13 @@
 import { FlatList, StyleSheet, Text, View } from "react-native"
-import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import GridItemsComponent from "../../components/gridItems/gridItems";
+import React from "react";
 import { arrayCategoriesData } from "../../data/interfaces";
 import { selectCategory } from "../../store/actions/category.action";
 
 export interface RecycleComponentProps {
     navigation: any
-    route: any
 }
  
 const RecycleComponent: React.FC<RecycleComponentProps> = ({ navigation }) => {

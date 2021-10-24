@@ -54,8 +54,36 @@ const PlasticTypesComponent: PlasticTypesData[] = [
         id: '8',
         type: 'glass',
         category: '2',
-        title: 'saraseando',
-        description: 'puara sarasaaahaha ahha a akjs l',
+        title: 'Glass',
+        description: 'Glass is one of the most popular storage and packaging products used today. Not only are glass bottles and jars 100% recyclable, but it is also one of the easiest commodities to recycle or reuse, saving on both natural resources and landfill space',
+    },
+    {
+        id: '9',
+        type: 'Paper and Cardboard',
+        category: '3',
+        title: 'Paper and Cardboard',
+        description: 'Paper and cardboard are produced from tree fibres and represent a large part of the waste stream. Most cardboard is produced from recycled paper and it can be recycled many times over. There are opportunities to recycle cardboard and paper, both at home and at your workplace.',
+    },
+    {
+        id: '10',
+        type: 'Others',
+        category: '4',
+        title: 'E-waste',
+        description: 'The term ‘ewaste’ encompasses all old electrical appliances either in a state of disrepair or simply obsolete. This includes everything from fridges and microwaves to mobile phones and computers. The correct disposal of ewaste is of vital importance to being able to achieve a sustainable future.',
+    },
+    {
+        id: '11',
+        type: 'Others',
+        category: '4',
+        title: 'Batteries',
+        description: 'There are a wide range of battery types, many of which contain toxic metals such as cadmium, mercury and lead. Others contain valuable materials like magnesium and zinc. Batteries should never be put in the recycling bin or in your waste bin. Rechargeable batteries and lithium ion batteries are hazardous and could produce sparks that may start a fire in the trucks or recycling facility. This includes batteries in laptops, mobile phones, power tools and cameras. Aldi supermarkets offer a free battery recycling service at all their Australian stores. Any brand of AA, AAA, C, D and 9V batteries (both rechargeable and non-rechargeable) are accepted - simply drop your used batteries into the dedicated bins in store. For other services and for options for different battery types (eg buttons and 12 volts) see below. Woolworths supermarkets are rolling out battery and mobile phone collection points in their stores throughout 2021.',
+    },
+    {
+        id: '12',
+        type: 'Others',
+        category: '4',
+        title: 'Metal',
+        description: 'Scrap metals include a number of materials such as aluminium, brass, copper, stainless steel, cast iron, lead, zinc and nickel. Recycling scrap metal contributes to a significant saving in greenhouse gas emissions. Making items from recycled aluminium uses just 5% of the energy as making the same item from raw materials. Scrap metal can be collected by companies like the Bingo Skip Bins or delivered to scrap metal dealers.',
     },
 ];
 

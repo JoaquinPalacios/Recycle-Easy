@@ -14,10 +14,10 @@ const MainNavigationComponent: React.FC<MainNavigationComponentProps> = () => {
     return (
         <>
             <NavigationContainer>
-                {userId
+                {/* {userId
                     ? <TabNavigationComponent />
-                    : <AuthNavigatorComponent />}
-                    {/* <TabNavigationComponent /> */}
+                    : <AuthNavigatorComponent />} */}
+                    <TabNavigationComponent />
             </NavigationContainer>
         </>
     );

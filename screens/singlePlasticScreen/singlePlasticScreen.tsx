@@ -26,9 +26,6 @@ const SingleItemScreenComponent: React.FC<SingleItemScreenComponentProps> = () =
             </View>
             <View style={styles.container}>
                 <View>
-                    <Text style={styles.textTitle}>{plastic?.id} {plastic?.title}</Text>
-                </View>
-                <View>
                     <Text style={styles.text}>{plastic?.description}</Text>
                 </View>
             </View>
@@ -37,21 +34,31 @@ const SingleItemScreenComponent: React.FC<SingleItemScreenComponentProps> = () =
 }
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        alignContent: 'center',
-        justifyContent: 'center',
-        marginHorizontal: 20,
-        overflow: "scroll",
-    },
-    textTitle: {
-        fontSize: 20,
-        fontWeight: '700',
-        paddingVertical: 10,
+        flex: 0,
+        alignSelf: 'center',
+        justifyContent: 'flex-start',
+        flexDirection: 'row',
+        marginHorizontal: 22,
+        marginVertical: 22,
+        height: 'auto',       
+        backgroundColor: '#E1F3E5',
+        borderColor: '#000',
+        borderRadius: 8,
+        borderWidth: 1,
+        shadowColor: '#000',
+        shadowOffset: {
+          width: 0,
+          height: 2,
+        },
+        shadowRadius: 6,
+        shadowOpacity: 0.25,
+        elevation: 5,
     },
     text: {
-        fontSize: 19,
+        fontSize: 20,
         fontWeight: '500',
-        paddingVertical: 5,
+        paddingHorizontal: 11,
+        paddingVertical: 5.5,
         textAlign: "justify",
     },
 }); 

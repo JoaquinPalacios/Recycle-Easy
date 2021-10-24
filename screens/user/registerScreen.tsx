@@ -57,8 +57,8 @@ const RegisterScreenComponent: React.FC<RegisterScreenComponentProps> = () => {
     return (
         <>
             <AuthScreenWrapperComponent
-            title="SING UP"
-            message="Already register?"
+            title="SIGN UP"
+            message="Already registered?"
             buttonText="Log in"
             buttonPath="Login">
                 <InputComponent

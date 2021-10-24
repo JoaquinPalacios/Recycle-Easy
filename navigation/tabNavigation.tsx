@@ -2,6 +2,7 @@ import { Platform, StyleSheet } from "react-native";
 
 import CalendarComponent from "../components/Calendar/Calendar";
 import CompostComponent from "../components/Compost/Compost";
+import CompostGuideComponent from "../components/CompostGuide";
 import EcoNoticias from "../components/EcoNoticias/EcoNoticias";
 import { FontAwesome } from '@expo/vector-icons';
 import HomeComponent from "../screens/homeScreen/homeScreen";
@@ -9,7 +10,8 @@ import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
 import RecycleComponent from "../screens/RecycleScreen/RecycleScreen";
 import SingleItemScreenComponent from "../screens/singlePlasticScreen/singlePlasticScreen";
-import TipsComponent from "../components/tips/Tips";
+import TipsItemsScreenComponent from "../screens/TipsItemsScreen";
+import TipsScreen from "../screens/TipsScreen";
 import colors from "../constants/colors";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -51,8 +53,9 @@ export const homeStackNavigator = () => {
             }}} />
             <Stack.Screen 
             name='Tips' 
-            component={TipsComponent} 
+            component={tipsStackNavigator} 
             options={{
+                headerShown: false,
                 headerTransparent: true,
                 headerTintColor: "#fff",
                 headerBackTitle: '',
@@ -63,6 +66,30 @@ export const homeStackNavigator = () => {
     </>
 )};
 
+export const tipsStackNavigator = () => (
+    <>
+        <Stack.Navigator initialRouteName='Tips'>
+            <Stack.Screen
+            name='Tips-Stack'
+            component={TipsScreen}
+            options={{
+                headerTransparent: true,
+                headerTintColor: '#fff',
+                headerBackTitleVisible: false,
+                headerBackTitle: '',
+                headerTitle: '',
+                headerBlurEffect: 'systemThickMaterial',
+            }}
+            />
+            <Stack.Screen
+            name='Tips-types' 
+            component={TipsItemsScreenComponent}
+            options={({ route }: {route:any}) => (
+                {title: route.params.name,}
+                )} />            
+        </Stack.Navigator>
+    </>
+);
 
 export const recycleStackNavigator = () => (
     <>
@@ -91,68 +118,96 @@ export const recycleStackNavigator = () => (
                 headerBackTitle: '',
                 headerTitle: '',
                 headerBlurEffect: 'systemThickMaterial',
-                // headerBackImageSource: <Ionicons name="arrow-back-outline" />,
                 }} /> 
         </Stack.Navigator>
     </>
 );
+
+export const compostStackNavigator = () => (
+    <>
+        <Stack.Navigator initialRouteName='Compost'>
+            <Stack.Screen
+            name='Compost-Stack'
+            component={CompostComponent}
+            options={{
+                headerTransparent: true,
+                headerTintColor: '#fff',
+                headerBackTitleVisible: false,
+                headerBackTitle: '',
+                headerTitle: '',
+                headerBlurEffect: 'systemThickMaterial',
+            }}
+            />
+            <Stack.Screen
+            name='Compost-guide' 
+            component={CompostGuideComponent}
+            options={{
+                headerTransparent: true,
+                headerTintColor: '#fff',
+                headerBackTitleVisible: false,
+                headerBackTitle: '',
+                headerTitle: '',
+                headerBlurEffect: 'systemThickMaterial',
+            }} />            
+        </Stack.Navigator>
+    </>
+);
+
 const TabNavigationComponent: React.FC<TabNavigationComponentProps> = () => {
     return (
         <>
-            {/* <NavigationContainer> */}
-                <Tab.Navigator
-                screenOptions={{tabBarStyle: {
-                    backgroundColor: colors.primary,
-                    height: 83,
-                    paddingBottom: 15,
-                    paddingTop: 15
-                },
-                tabBarActiveTintColor: 'white',
-                tabBarInactiveTintColor: 'black',
-                }}>
-                    <Tab.Screen 
-                    name='Home-Tab' 
-                    component={homeStackNavigator} 
-                    options={{
+            <Tab.Navigator
+            screenOptions={{tabBarStyle: {
+                backgroundColor: colors.primary,
+                height: 83,
+                paddingBottom: 15,
+                paddingTop: 15
+            },
+            tabBarActiveTintColor: 'white',
+            tabBarInactiveTintColor: 'black',
+            }}>
+                <Tab.Screen 
+                name='Home-Tab' 
+                component={homeStackNavigator} 
+                options={{
+                    headerShown: false,
+                    tabBarIcon: ({color}) => (<Ionicons 
+                        name={Platform.OS === "ios" ? `ios-home` : "md-home"} 
+                        size={32} 
+                        color={color} />),
+                }} />
+                <Tab.Screen 
+                name='Recycle' 
+                component={recycleStackNavigator} 
+                options={{
+                    headerShown: false,
+                    headerTitle: 'What would you like to recycle?', 
+                    headerTitleAlign: 'center',
+                    tabBarIcon: ({color}) => (<FontAwesome 
+                        name='recycle' 
+                        size={32} 
+                        color={color} />),
+                }} />
+                <Tab.Screen 
+                name='Calendar' 
+                component={CalendarComponent}
+                options={{
+                    tabBarIcon: ({color}) => (<Ionicons 
+                        name={Platform.OS === "ios" ? `ios-calendar-outline` : "md-calendar-outline"} 
+                        size={32} 
+                        color={color} />),
+                }} />
+                <Tab.Screen 
+                name='Compost' 
+                component={compostStackNavigator} 
+                options={{
+                    tabBarIcon: ({color}) => (<Ionicons 
+                        name={Platform.OS === "ios" ? `ios-leaf-outline` : "md-leaf-outline"} 
+                        size={32} 
+                        color={color} />),
                         headerShown: false,
-                        tabBarIcon: ({color}) => (<Ionicons 
-                            name={Platform.OS === "ios" ? `ios-home` : "md-home"} 
-                            size={32} 
-                            color={color} />),
-                    }} />
-                    <Tab.Screen 
-                    name='Recycle' 
-                    component={recycleStackNavigator} 
-                    options={{
-                        headerShown: false,
-                        headerTitle: 'What would you like to recycle?', 
-                        headerTitleAlign: 'center',
-                        tabBarIcon: ({color}) => (<FontAwesome 
-                            name='recycle' 
-                            size={32} 
-                            color={color} />),
-                    }} />
-                    <Tab.Screen 
-                    name='Calendar' 
-                    component={CalendarComponent}
-                    options={{
-                        tabBarIcon: ({color}) => (<Ionicons 
-                            name={Platform.OS === "ios" ? `ios-calendar-outline` : "md-calendar-outline"} 
-                            size={32} 
-                            color={color} />),
-                    }} />
-                    <Tab.Screen 
-                    name='Compost' 
-                    component={CompostComponent} 
-                    options={{
-                        tabBarIcon: ({color}) => (<Ionicons 
-                            name={Platform.OS === "ios" ? `ios-leaf-outline` : "md-leaf-outline"} 
-                            size={32} 
-                            color={color} />),
-                    }} />
-
-                </Tab.Navigator>
-            {/* </NavigationContainer> */}
+                }} />
+            </Tab.Navigator>
         </>
     );
 }
