@@ -2,8 +2,7 @@ import * as SQLite from 'expo-sqlite';
 
 const db = SQLite.openDatabase('address.db');
 
-export interface SQLTransaction {
-    
+export interface SQLTransaction {    
     
 }
 

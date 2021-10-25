@@ -1,7 +1,8 @@
-import { Button, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Button, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 import { Header } from "react-native-elements";
 import React from "react";
+import colors from "../../constants/colors";
 
 export interface CompostComponentProps {
     navigation: any
@@ -24,9 +25,9 @@ const CompostComponent: React.FC<CompostComponentProps> = ({navigation}) => {
                     <Text style={styles.subTitle}>Want to turn your kitchen and garden waste into ‘black gold’? Here’s how to start composting and why you’d want to.</Text>
                     <Text style={styles.text}>Do you like the idea of composting but haven’t tried it because it seems too difficult?{"\n"}{"\n"}Put simply, composting breaks down organic matter, which is anything that was once living. This means you are recycling vital nutrients so you can use them to improve the quality of your soil.{"\n"}{"\n"}Up to half of the waste thrown out by the average Australian household is organic material.{"\n"}{"\n"}Of course you can put your organic waste in your green council bin to be collected and turned into mulch and other products. Or you can set up your own garden composting system and make your plants healthier at no extra cost.{"\n"}{"\n"}Composting is easy and knowing how to set up a garden composting system can take your gardening effort to the next level.{"\n"}{"\n"}Click down here for some simple tips on how you can start composting and turn your kitchen and garden waste into what some gardeners call ‘black gold’.</Text>
                 </View>
-                <View style={styles.button}>
-                    <Button title="Five step guide" onPress={() => navigation.navigate('Compost-guide')} />
-                </View>
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Compost-guide')} >
+                    <Text style={styles.textTouchable}>Five steps guide</Text>
+                </TouchableOpacity>
             </ScrollView>            
         </>
     );
@@ -61,5 +62,28 @@ const styles = StyleSheet.create({
     },
     button: {
         marginVertical: 22,
+        backgroundColor: colors.primary,
+        borderColor: colors.primary,
+        borderRadius: 8,
+        borderWidth: 1,
+        shadowColor: '#000',
+        shadowOffset: {
+          width: 0,
+          height: 2,
+        },
+        shadowRadius: 6,
+        shadowOpacity: 0.25,
+        elevation: 5,
+        width: 300,
+        justifyContent: 'center',
+        alignSelf: 'center',
+    },
+    textTouchable: {
+        alignSelf: 'center',
+        color: '#fff',
+        fontSize: 21,
+        fontWeight: '700',
+        justifyContent: 'center',
+        paddingVertical: 11,
     },
 });

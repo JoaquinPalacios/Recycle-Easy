@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 import { Header } from "react-native-elements";
 import React from 'react';
@@ -24,11 +24,13 @@ const SingleItemScreenComponent: React.FC<SingleItemScreenComponentProps> = () =
                     statusBarProps={{ translucent: true, backgroundColor: "transparent"}}
                     containerStyle={{ height: 315, alignItems: 'flex-end' }} />
             </View>
-            <View style={styles.container}>
-                <View>
-                    <Text style={styles.text}>{plastic?.description}</Text>
+            <ScrollView>
+                <View style={styles.container}>
+                    <View>
+                        <Text style={styles.text}>{plastic?.description}</Text>
+                    </View>
                 </View>
-            </View>
+            </ScrollView>            
         </>
     );
 }

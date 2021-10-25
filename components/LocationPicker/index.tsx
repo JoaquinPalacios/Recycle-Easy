@@ -6,8 +6,6 @@ import React, { useState } from "react";
 import MapPreviewComponent from '../MapPreview';
 import colors from '../../constants/colors';
 
-// import { useNavigation } from '@react-navigation/native';
-
 interface LocationPickerComponentProps {
     
 }
@@ -37,8 +35,7 @@ const LocationPickerComponent: React.FC<LocationPickerComponentProps> = ( props 
         if (!isLocationOk) return;
 
         const location = await Location.getCurrentPositionAsync({
-            timeInterval: 5000,
-            
+            timeInterval: 5000,            
             // timeout: 5000,
         });
         console.log('location inside handleGeoLocation on LocationPickerComponent', location)
@@ -47,50 +44,7 @@ const LocationPickerComponent: React.FC<LocationPickerComponentProps> = ( props 
             lat: location.coords.latitude,
             lng: location.coords.longitude,
         });
-        // props.onLocation({
-        //     lat: location.coords.latitude,
-        //     lng: location.coords.longitude,
-        // });
     }
-
-    // useEffect(() => {
-    //     (async () => {
-    //         let { status } = await Location.requestForegroundPermissionsAsync();
-    //         if (status !== 'granted') {
-    //             Alert.alert(
-    //                 'Permisssion denied',
-    //                 'It needs to be given permission to the app',
-    //                 [{ text: 'Ok' }]
-    //             );
-    //             return;
-    //         }
-    //         let location = await Location.getCurrentPositionAsync({});
-    //         setLocation(location);
-    //     })();
-    // }, []);
-
-    // const getLocationHandler = async () => {
-    //     if (!location) {
-    //         return;
-    //     }
-    //     try {
-    //         setIsFetching(true);
-    //         const location = await Location.getCurrentPositionAsync({
-    //             timeout: 5000,
-    //         });
-    //         setPickedLocation({
-    //             lat: location.coords.latitude,
-    //             lng: location.coords.longitude
-    //         });
-    //     } catch (err) {
-    //         Alert.alert(
-    //             'Could not get location',
-    //             'Please try again.',
-    //             [{ text: 'Ok' }]
-    //         );
-    //     }
-    //     setIsFetching(false);
-    // }
 
     return (
         <>

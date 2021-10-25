@@ -32,7 +32,6 @@ const TipsItemsScreenComponent: React.FC<TipsItemsScreenComponentProps> = ({ nav
     <TipsItemComponent item={item} onSelected={handleSelectedTip} />
     )
 
-
     return (
         <>
         {tips !== null ?

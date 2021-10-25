@@ -32,7 +32,7 @@ export const homeStackNavigator = () => {
             <Stack.Screen 
             name='Home' 
             component={HomeComponent}
-            options={{title: 'Hello User', 
+            options={{title: 'Home', 
             headerTitleAlign: 'center',
             headerTitleStyle: {
                 fontSize: 27,
@@ -73,6 +73,7 @@ export const tipsStackNavigator = () => (
             name='Tips-Stack'
             component={TipsScreen}
             options={{
+                headerShown: false,
                 headerTransparent: true,
                 headerTintColor: '#fff',
                 headerBackTitleVisible: false,
@@ -130,6 +131,7 @@ export const compostStackNavigator = () => (
             name='Compost-Stack'
             component={CompostComponent}
             options={{
+                headerShown: false,
                 headerTransparent: true,
                 headerTintColor: '#fff',
                 headerBackTitleVisible: false,

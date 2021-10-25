@@ -12,7 +12,6 @@ interface plasticsScreenComponentProps {
     renderItem: any
 }
 
-
 const plasticsScreenComponent: React.FC<plasticsScreenComponentProps> = ({ navigation }) => {
     const dispatch = useDispatch();
     const categoryID = useSelector((state: any) => state.categories.selectedID);

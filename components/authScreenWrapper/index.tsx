@@ -39,7 +39,6 @@ const styles = StyleSheet.create({
     },
     title: {
       fontSize: 24,
-      // fontFamily: 'OpenSansBold',
       marginBottom: 18,
       textAlign: 'center',
     },
@@ -57,12 +56,10 @@ const styles = StyleSheet.create({
     },
     promptMessage: {
       fontSize: 16,
-      // fontFamily: 'OpenSans',
       color: '#333',
     },
     promptButton: {
       fontSize: 16,
-      // fontFamily: 'OpenSansBold',
       color: colors.primary,
     },
   });
