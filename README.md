@@ -1,5 +1,5 @@
 # Recycle Easy App
-> This project is a Recycle Android App that helps people that are new or with knowledge about how to recyle all sort of items.
+> This project is a Recycling Android App that helps people that are new or with knowledge about how to recyle all sort of items.
 # Technologies
 Project is created with:
 > Typescript
