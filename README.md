@@ -2,9 +2,9 @@
 > This project is a Recycle Android App that helps people that are new or with knowledge about how to recyle all sort of items.
 # Technologies
 Project is created with:
+> Typescript
 > Expo.
 > React Native.
-> Typescript.
 > Redux.
 > SQLite.
 # App
