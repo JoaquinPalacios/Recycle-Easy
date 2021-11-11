@@ -9,11 +9,9 @@ export interface CardsComponentProps {
  
 const CardsComponent: React.FC<CardsComponentProps> = ({children}, style) => {
     return (
-        <>
             <View style={{ ...styles.cardContainer, ...style }}>
                 {children}
             </View>
-        </>
     );
 }
 
@@ -22,8 +20,8 @@ const styles = StyleSheet.create({
       borderRadius: 10,
       backgroundColor: colors.primary,
       color: '#fff',
-      marginVertical: 10,
-      padding: 20,
+      marginVertical: 11,
+      padding: 16.5,
       shadowColor: 'black',
       shadowOffset: {
         width: 0,
